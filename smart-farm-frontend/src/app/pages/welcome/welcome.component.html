@@ -5,12 +5,7 @@
         <div
           class="d-flex flex-column justify-content-center align-items-center"
         >
-          <div>This is chart</div>
-          <div>This is chart</div>
-          <div>This is chart</div>
-          <div>This is chart</div>
-          <div>This is chart</div>
-          <div>This is chart</div>
+          <app-chart></app-chart>
         </div>
       </mat-card>
     </div>
@@ -26,7 +21,9 @@
             <div
               class="d-flex flex-column justify-content-center align-items-center"
             >
-              <div class="value-number pt-4 py-5">{{ temperature }} °C</div>
+              <div class="value-number text-nowrap pt-4 py-5">
+                {{ temperature }} °C
+              </div>
               <div class="value-label pb-4">อุณหภูมิ</div>
             </div>
           </mat-card>
@@ -42,7 +39,9 @@
             <div
               class="d-flex flex-column justify-content-center align-items-center"
             >
-              <div class="value-number pt-4 py-5">{{ humidity }} %</div>
+              <div class="value-number text-nowrap pt-4 py-5">
+                {{ humidity }} %
+              </div>
               <div class="value-label pb-4">ความชื้น</div>
             </div>
           </mat-card>
@@ -60,7 +59,9 @@
             <div
               class="d-flex flex-column justify-content-center align-items-center"
             >
-              <div class="value-number pt-4 py-5">{{ dirtMoisture }} %</div>
+              <div class="value-number text-nowrap pt-4 py-5">
+                {{ dirtMoisture }} %
+              </div>
               <div class="value-label pb-4">ความชื้นดิน</div>
             </div>
           </mat-card>
@@ -76,7 +77,9 @@
             <div
               class="d-flex flex-column justify-content-center align-items-center"
             >
-              <div class="value-number pt-4 py-5">{{ windSpeed }} m/s</div>
+              <div class="value-number text-nowrap pt-4 py-5">
+                {{ windSpeed }} m/s
+              </div>
               <div class="value-label pb-4">ความเร็วลม</div>
             </div>
           </mat-card>
