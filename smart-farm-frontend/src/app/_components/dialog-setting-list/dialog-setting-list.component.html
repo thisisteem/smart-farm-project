@@ -1,7 +1,7 @@
 <div mat-dialog-title class="text-center fs-3">จัดการการตั้งค่าอุปกรณ์</div>
 <div mat-dialog-content>
   <div class="fs-5 pb-3 pt-3">การตั้งค่าอุณหภูมิ</div>
-  <table mat-table class="mat-elevation-z2" [dataSource]="dataSource">
+  <table mat-table class="mat-elevation-z2" [dataSource]="dataSourceTemp">
     <ng-container matColumnDef="temperature">
       <th mat-header-cell *matHeaderCellDef>อุณหภูมิ</th>
       <td mat-cell *matCellDef="let element">
@@ -30,8 +30,63 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsTemp"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsTemp"></tr>
+  </table>
+  <br />
+
+  <div class="fs-5 pb-3 pt-3">การตั้งค่าเวลา</div>
+  <table mat-table class="mat-elevation-z2" [dataSource]="dataSourceTime">
+    <ng-container matColumnDef="day">
+      <th mat-header-cell *matHeaderCellDef>วัน</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.day == 'sunday'">อาทิตย์</span>
+        <span *ngIf="element.day == 'monday'">จันทร์</span>
+        <span *ngIf="element.day == 'tuesday'">อังคาร</span>
+        <span *ngIf="element.day == 'wednesday'">พุธ</span>
+        <span *ngIf="element.day == 'thursday'">พฤหัสบดี</span>
+        <span *ngIf="element.day == 'friday'">ศุกร์</span>
+        <span *ngIf="element.day == 'saturday'">เสาร์</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="timestamp">
+      <th mat-header-cell *matHeaderCellDef>เวลาเริ่ม</th>
+      <!-- <td mat-cell *matCellDef="let element">{{ element.timestamp }}</td> -->
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.timestamp.minute == 0"
+          >{{ element.timestamp.hour }}: {{ element.timestamp.minute }}0</span
+        >
+        <span *ngIf="element.timestamp.minute != 0"
+          >{{ element.timestamp.hour }}: {{ element.timestamp.minute }}</span
+        >
+        <!-- {{ element.timestamp.hour }}: {{ element.timestamp.minute }} -->
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef>เวลาทำงาน (นาที)</th>
+      <td mat-cell *matCellDef="let element">{{ element.duration }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="relayNumber">
+      <th mat-header-cell *matHeaderCellDef>รีเลย์</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.relayNumber }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tool">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="onDelete()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsTime"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsTime"></tr>
   </table>
 </div>
 <br />

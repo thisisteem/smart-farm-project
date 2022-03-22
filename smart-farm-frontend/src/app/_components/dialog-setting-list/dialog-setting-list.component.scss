@@ -5,7 +5,9 @@ table {
 .mat-column-temperature,
 .mat-column-duration,
 .mat-column-relayNumber,
-.mat-column-tool {
+.mat-column-tool,
+.mat-column-day,
+.mat-column-timestamp {
   text-align: center;
   font-size: 20px;
 }

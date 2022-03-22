@@ -1,26 +1,29 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-export interface savedTempElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
 @Component({
   selector: 'app-dialog-setting-list',
   templateUrl: './dialog-setting-list.component.html',
   styleUrls: ['./dialog-setting-list.component.scss'],
 })
 export class DialogSettingListComponent implements OnInit {
-  displayedColumns: string[] = [
+  displayedColumnsTemp: string[] = [
     'temperature',
     'duration',
     'relayNumber',
     'tool',
   ];
-  dataSource: any;
+
+  displayedColumnsTime: string[] = [
+    'day',
+    'timestamp',
+    'duration',
+    'relayNumber',
+    'tool',
+  ];
+
+  dataSourceTemp: any;
+  dataSourceTime: any;
 
   constructor(
     public dialogRef: MatDialogRef<DialogSettingListComponent>,
@@ -28,8 +31,10 @@ export class DialogSettingListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dataSource = this.data.savedTemp;
-    console.log(this.dataSource);
+    this.dataSourceTemp = this.data.savedTemp;
+    this.dataSourceTime = this.data.savedTime;
+
+    console.log(this.dataSourceTime);
   }
 
   onNoClick(): void {

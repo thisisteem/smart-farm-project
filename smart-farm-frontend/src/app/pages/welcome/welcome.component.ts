@@ -56,6 +56,39 @@ export class WelcomeComponent implements OnInit {
     },
   ];
 
+  savedTime = [
+    {
+      day: 'monday',
+      timestamp: {
+        hour: 9,
+        minute: 30,
+        second: 0,
+      },
+      duration: 10,
+      relayNumber: 1,
+    },
+    {
+      day: 'friday',
+      timestamp: {
+        hour: 12,
+        minute: 0,
+        second: 0,
+      },
+      duration: 20,
+      relayNumber: 3,
+    },
+    {
+      day: 'tuesday',
+      timestamp: {
+        hour: 21,
+        minute: 45,
+        second: 0,
+      },
+      duration: 30,
+      relayNumber: 4,
+    },
+  ];
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -105,6 +138,7 @@ export class WelcomeComponent implements OnInit {
       width: '30%',
       data: {
         savedTemp: this.savedTemp,
+        savedTime: this.savedTime,
       },
     });
 
