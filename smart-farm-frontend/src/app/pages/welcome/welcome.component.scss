@@ -1,5 +1,6 @@
 .value-number {
-  font-size: 50px;
+  // font-size: 50px;
+  font-size: calc(1.2rem + 2vw);
 }
 
 .value-label {
@@ -12,7 +13,7 @@
 
 .light-on-icon {
   font-size: 80px;
-  color: #7abb68;
+  color: #58dd72;
 }
 
 .light-off-icon {
@@ -28,4 +29,8 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.card-switch {
+  cursor: pointer;
 }

@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+.mat-column-temperature,
+.mat-column-duration,
+.mat-column-relayNumber,
+.mat-column-tool {
+  text-align: center;
+  font-size: 20px;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: #e8e9ed;
+}

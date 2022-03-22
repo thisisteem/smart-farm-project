@@ -7,3 +7,16 @@ html,
 body {
   height: 100%;
 }
+
+.mat-typography {
+  font-family: "Sarabun", sans-serif !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+@import "~@angular/material/theming";
+$custom-typography: mat-typography-config(
+  $font-family: "Sarabun",
+);
+@include mat-core($custom-typography);
