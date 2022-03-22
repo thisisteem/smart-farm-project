@@ -1,0 +1,28 @@
+<div mat-dialog-title class="text-center fs-3">เพิ่มตั้งค่าอุณหภูมิ</div>
+<div mat-dialog-content>
+  <div class="fs-5 pb-2 pt-3">ชื่อ Wifi</div>
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="setSetting.wifiName" maxlength="30" />
+  </mat-form-field>
+
+  <div class="fs-5 pb-2 pt-3">รหัสผ่าน Wifi</div>
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="setSetting.wifiPassword" maxlength="20" />
+  </mat-form-field>
+
+  <div class="fs-5 pb-2 pt-3">ชนิดพืช</div>
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="setSetting.plantCategory" maxlength="50" />
+  </mat-form-field>
+
+  <div class="fs-5 pb-2 pt-3">หมายเลขบอร์ด</div>
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="setSetting.boardNumber" maxlength="20" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-end align-items-center">
+  <button mat-stroked-button (click)="onNoClick()">ละทิ้ง</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="setSetting">
+    บันทึก
+  </button>
+</div>
