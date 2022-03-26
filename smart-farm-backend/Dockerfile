@@ -26,4 +26,4 @@ COPY . /usr/src/app/api/
 EXPOSE 1000
 
 # Serve the app
-CMD ["npm", "run"]
+CMD ["npm", "run", "start"]
