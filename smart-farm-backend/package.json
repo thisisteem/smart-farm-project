@@ -4,8 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon -x node ./server.js || touch ./server.js",
+    "start-test": "nodemon -x 'node ./app/bin/www || touch ./app/bin/www'",
+    "dev": "NODE_ENV=development nodemon -x 'node ./server.js || touch ./server.js'",
+    "prod": "NODE_ENV=production nodemon -x 'node ./server.js || touch ./server.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",

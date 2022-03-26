@@ -3,8 +3,8 @@
 # Create image based on the official Node 6 image from the dockerhub
 FROM node:alpine
 
-# Install ffmpeg
-RUN apk update && apk add ffmpeg
+# # Install ffmpeg
+# RUN apk update && apk add ffmpeg
 
 # Create a directory where our app will be placed
 RUN mkdir -p /usr/src/app/api
@@ -26,4 +26,4 @@ COPY . /usr/src/app/api/
 EXPOSE 1000
 
 # Serve the app
-CMD ["npm", "run","dev"]
+CMD ["npm", "run"]
