@@ -9,7 +9,7 @@ var dbOptions = {
   host: env_config.db.host,
   database: env_config.db.database,
   user: env_config.db.user,
-  // password: env_config.db.password,
+  password: env_config.db.password,
 };
 
 var MySQL = require("mysql2");

@@ -5,7 +5,6 @@ metadata:
   name: mysql-secrets
 type: Opaque
 data:
-  
   ROOT_PASSWORD: c3VwZXItc2VjcmV0LXBhc3N3b3Jk
 ---
 apiVersion: v1
@@ -45,7 +44,7 @@ spec:
               subPath: "mysql"
               name: mysql-data
           env:
-            - name: DEV_DB_PASSWORD
+            - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mysql-secrets
@@ -63,6 +62,6 @@ spec:
   selector:
     app: mysql
   ports:
-  - protocol: TCP
-    port: 3306
-    targetPort: 3306
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
