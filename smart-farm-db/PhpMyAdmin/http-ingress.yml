@@ -7,9 +7,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - http:
+    - host: smart-farm.com
+      http:
         paths:
-          - path: /testpath
+          - path: /
             pathType: Prefix
             backend:
               service:
