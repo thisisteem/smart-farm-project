@@ -10,7 +10,7 @@ spec:
     - host: smart-farm.com
       http:
         paths:
-          - path: /
+          - path: /phpmyadmin
             pathType: Prefix
             backend:
               service:
