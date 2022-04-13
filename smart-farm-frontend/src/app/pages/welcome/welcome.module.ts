@@ -16,6 +16,8 @@ import { DialogSettingListComponent } from '../../_components/dialog-setting-lis
 import { DialogSystemSettingComponent } from '../../_components/dialog-system-setting/dialog-system-setting.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { UserService } from 'src/app/service/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -26,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     NgChartsModule,
     NgbModule,
     FormsModule,
+    HttpClientModule,
   ],
   declarations: [
     WelcomeComponent,

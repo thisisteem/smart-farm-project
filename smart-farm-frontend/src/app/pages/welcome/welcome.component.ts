@@ -4,6 +4,7 @@ import { DialogSettingListComponent } from 'src/app/_components/dialog-setting-l
 import { DialogAddTempSettingComponent } from 'src/app/_components/dialog-add-temp-setting/dialog-add-temp-setting.component';
 import { DialogSystemSettingComponent } from 'src/app/_components/dialog-system-setting/dialog-system-setting.component';
 import { DialogAddTimeSettingComponent } from 'src/app/_components/dialog-add-time-setting/dialog-add-time-setting.component';
+import { UserService } from 'src/app/service/user.service';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -89,7 +90,7 @@ export class WelcomeComponent implements OnInit {
     },
   ];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit() {
     // this.doSystemSetting();
@@ -102,7 +103,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   test() {}
-
+  
   doTimeSet() {
     const dialogRef = this.dialog.open(DialogAddTimeSettingComponent, {
       width: '30%',
@@ -163,4 +164,11 @@ export class WelcomeComponent implements OnInit {
       }
     });
   }
+  
+  onUpload() {
+    this.userService.findAllUser().subscribe(res => {
+      console.log(res);
+    })
+  }
+
 }

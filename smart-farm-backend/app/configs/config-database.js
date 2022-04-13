@@ -37,11 +37,11 @@ module.exports = function () {
           port: parseInt(environment.TEST_APP_PORT) || 1000,
         },
         db: {
-          host: environment.TEST_DB_HOST || "localhost",
-          port: parseInt(environment.TEST_DB_PORT) || 3306,
-          user: environment.TEST_DB_USER || "root",
-          password: environment.TEST_DB_PASSWORD || "super-secret-password",
-          database: environment.TEST_DB_DATABASE || "smart_farm",
+          host: "mysql-service.default.svc.cluster.local",
+          port: 3306,
+          user: "root",
+          password: "super-secret-password",
+          database: "smart_farm",
         },
       };
   }
