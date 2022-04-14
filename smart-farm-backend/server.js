@@ -52,6 +52,12 @@ app.use(express.static("public"));
 
 app.use("/api/user", require("./app/routes/user.routes"));
 
+app.use("/api/timeSetting", require("./app/routes/timeSetting.routes"));
+
+app.use("/api/tempSetting", require("./app/routes/tempSetting.routes"));
+
+app.use("/api/systemSetting", require("./app/routes/systemSetting.routes"));
+
 // ============================= global error handler =============================
 app.use(errorHandler.get404);
 
