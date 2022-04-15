@@ -25,7 +25,8 @@ module.exports = class DbTempSetting {
     return db.query(
       `
             SELECT          *
-            FROM            temp_setting`
+            FROM            temp_setting
+            ORDER    BY     temperature`
     );
   }
 

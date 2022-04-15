@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SystemSettingService } from 'src/app/service/system-setting.service';
 
 @Component({
   selector: 'app-dialog-system-setting',
@@ -16,10 +17,20 @@ export class DialogSystemSettingComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogSystemSettingComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private systemSettingService: SystemSettingService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.queryData();
+  }
+
+  queryData() {
+    this.systemSettingService.findAll().subscribe((res) => {
+      console.log(res);
+      this.setSetting = res;
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

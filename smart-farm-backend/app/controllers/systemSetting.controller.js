@@ -10,7 +10,8 @@ exports.search = async (req, res, next) => {
 };
 
 exports.update = async (req, res, next) => {
-  let { id, wifiName, wifiPassword, plantCategory, boardNumber } = req.body;
+  let { id, wifiName, wifiPassword, plantCategory, boardNumber } =
+    req.body.dataInfo;
 
   try {
     let [oldData] = await DbSystemSetting.search();

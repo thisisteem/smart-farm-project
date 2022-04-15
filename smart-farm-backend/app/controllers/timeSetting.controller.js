@@ -12,7 +12,7 @@ exports.create = async (req, res, next) => {
     relay_2,
     relay_3,
     relay_4,
-  } = req.body;
+  } = req.body.dataInfo;
 
   try {
     let timeSettingData = new DbTimeSetting("");
@@ -25,7 +25,6 @@ exports.create = async (req, res, next) => {
     timeSettingData.relay_2 = relay_2 ? relay_2 : "0";
     timeSettingData.relay_3 = relay_3 ? relay_3 : "0";
     timeSettingData.relay_4 = relay_4 ? relay_4 : "0";
-    console.log(">>>> timeSettingData: ", timeSettingData);
 
     await DbTimeSetting.create(timeSettingData);
     res.status(200).json({ message: "create success" });

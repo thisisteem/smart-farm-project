@@ -6,12 +6,13 @@
   <mat-form-field appearance="outline">
     <mat-label>กรุณาเลือกวัน</mat-label>
     <mat-select [(ngModel)]="setTime.day">
-      <mat-option value="sunday">จันทร์</mat-option>
-      <mat-option value="monday">อังคาร</mat-option>
-      <mat-option value="tuesday">พุธ</mat-option>
-      <mat-option value="thursday">พฤหัส</mat-option>
-      <mat-option value="friday">ศุกร์</mat-option>
-      <mat-option value="saturday">เสาร์</mat-option>
+      <mat-option value="1">อาทิตย์</mat-option>
+      <mat-option value="2">จันทร์</mat-option>
+      <mat-option value="3">อังคาร</mat-option>
+      <mat-option value="4">พุธ</mat-option>
+      <mat-option value="5">พฤหัส</mat-option>
+      <mat-option value="6">ศุกร์</mat-option>
+      <mat-option value="7">เสาร์</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -37,7 +38,5 @@
 <hr />
 <div mat-dialog-actions class="d-flex justify-content-end align-items-center">
   <button mat-stroked-button (click)="onNoClick()">ละทิ้ง</button>
-  <button mat-flat-button color="primary" [mat-dialog-close]="setTime">
-    บันทึก
-  </button>
+  <button mat-flat-button color="primary" (click)="onSave()">บันทึก</button>
 </div>

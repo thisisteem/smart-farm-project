@@ -3,7 +3,9 @@ const uuid4 = require("uuid4");
 
 exports.create = async (req, res, next) => {
   let { id, temperature, duration, relay_1, relay_2, relay_3, relay_4 } =
-    req.body;
+    req.body.dataInfo;
+
+  console.log("body -> ", req.body.dataInfo);
 
   try {
     let tempSettingData = new DbTempSetting("");

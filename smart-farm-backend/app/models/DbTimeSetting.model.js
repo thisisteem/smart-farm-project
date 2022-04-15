@@ -27,7 +27,8 @@ module.exports = class DbTimeSetting {
     return db.query(
       `
             SELECT          *
-            FROM            time_setting`
+            FROM            time_setting
+            ORDER    BY     day`
     );
   }
 

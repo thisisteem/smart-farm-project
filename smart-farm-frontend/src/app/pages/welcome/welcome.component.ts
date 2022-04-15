@@ -5,6 +5,10 @@ import { DialogAddTempSettingComponent } from 'src/app/_components/dialog-add-te
 import { DialogSystemSettingComponent } from 'src/app/_components/dialog-system-setting/dialog-system-setting.component';
 import { DialogAddTimeSettingComponent } from 'src/app/_components/dialog-add-time-setting/dialog-add-time-setting.component';
 import { UserService } from 'src/app/service/user.service';
+import { TimeSettingService } from 'src/app/service/time-setting.service';
+import { TempSettingService } from 'src/app/service/temp-setting.service';
+import { SystemSettingService } from 'src/app/service/system-setting.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -90,7 +94,15 @@ export class WelcomeComponent implements OnInit {
     },
   ];
 
-  constructor(public dialog: MatDialog, private userService: UserService) {}
+  private resultTempSetting: any = {};
+
+  constructor(
+    public dialog: MatDialog,
+    private userService: UserService,
+    private timeSettingService: TimeSettingService,
+    private tempSettingService: TempSettingService,
+    private systemSettingService: SystemSettingService
+  ) {}
 
   ngOnInit() {
     // this.doSystemSetting();
@@ -103,40 +115,42 @@ export class WelcomeComponent implements OnInit {
   }
 
   test() {}
-  
-  doTimeSet() {
+
+  addTimeSetting() {
     const dialogRef = this.dialog.open(DialogAddTimeSettingComponent, {
-      width: '30%',
-      // data: {
-      //   relays: relayInfo,
-      // },
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('result >>>', result);
+
+        this.timeSettingService.create(result).subscribe((res) => {
+          console.log(res);
+        });
       }
     });
   }
 
-  doDeviceSetting() {
+  addTempSetting() {
     const dialogRef = this.dialog.open(DialogAddTempSettingComponent, {
-      width: '30%',
-      // data: {
-      //   relays: relayInfo,
-      // },
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('result >>>', result);
+
+        this.tempSettingService.create(result).subscribe((res) => {
+          console.log(res);
+        });
       }
     });
   }
 
-  doDeviceList() {
+  settingList() {
     const dialogRef = this.dialog.open(DialogSettingListComponent, {
-      width: '30%',
+      width: '50%',
       data: {
         savedTemp: this.savedTemp,
         savedTime: this.savedTime,
@@ -150,25 +164,30 @@ export class WelcomeComponent implements OnInit {
     });
   }
 
-  doSystemSetting() {
+  systemSetting() {
     const dialogRef = this.dialog.open(DialogSystemSettingComponent, {
-      width: '30%',
-      // data: {
-      //   savedTemp: this.savedTemp,
-      // },
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('result >>>', result);
+
+        this.systemSettingService.update(result).subscribe((res) => {
+          console.log(res);
+          Swal.fire({
+            title: 'บันทึกเสร็จสิ้น!',
+            icon: 'success',
+            confirmButtonText: 'ตกลง',
+          });
+        });
       }
     });
   }
-  
-  onUpload() {
-    this.userService.findAllUser().subscribe(res => {
-      console.log(res);
-    })
-  }
 
+  onUpload() {
+    this.userService.findAllUser().subscribe((res) => {
+      console.log(res);
+    });
+  }
 }

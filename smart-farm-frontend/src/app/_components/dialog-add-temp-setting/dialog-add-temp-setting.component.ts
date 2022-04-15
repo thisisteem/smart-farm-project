@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./dialog-add-temp-setting.component.scss'],
 })
 export class DialogAddTempSettingComponent implements OnInit {
-  setDevice = {
+  setTemp = {
     temperature: '',
     duration: '',
     relays: [
@@ -34,12 +34,26 @@ export class DialogAddTempSettingComponent implements OnInit {
     ],
   };
 
+  private resultTempSetting: any = {};
+
   constructor(
     public dialogRef: MatDialogRef<DialogAddTempSettingComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   ngOnInit(): void {}
+
+  onSave() {
+    this.resultTempSetting = {
+      temperature: `${this.setTemp.temperature}`,
+      duration: `${this.setTemp.duration}`,
+      relay_1: this.setTemp.relays[0].status ? '1' : '0',
+      relay_2: this.setTemp.relays[1].status ? '1' : '0',
+      relay_3: this.setTemp.relays[2].status ? '1' : '0',
+      relay_4: this.setTemp.relays[3].status ? '1' : '0',
+    };
+    this.dialogRef.close(this.resultTempSetting);
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
