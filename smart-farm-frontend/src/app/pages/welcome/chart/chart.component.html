@@ -1,14 +1,12 @@
-<div class="flex">
-  <div class="flex-item">
-    <div style="position: relative; width: 45vw">
-      <canvas
-        baseChart
-        [data]="lineChartData"
-        [options]="lineChartOptions"
-        [type]="lineChartType"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"
-      ></canvas>
-    </div>
-  </div>
+<div style="position: relative">
+  <canvas
+    baseChart
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [type]="lineChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    width="400"
+    height="320"
+  ></canvas>
 </div>

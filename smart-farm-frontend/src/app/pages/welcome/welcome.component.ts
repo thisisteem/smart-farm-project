@@ -18,7 +18,6 @@ export class WelcomeComponent implements OnInit {
   temperature: number = 26;
   humidity: number = 87;
   dirtMoisture: number = 63;
-  windSpeed: number = 367;
 
   relays = [
     {
@@ -40,57 +39,6 @@ export class WelcomeComponent implements OnInit {
       index: 4,
       name: 'รีเลย์ 4',
       status: true,
-    },
-  ];
-
-  savedTemp = [
-    {
-      temperature: 35,
-      duration: 10,
-      relayNumber: 1,
-    },
-    {
-      temperature: 51,
-      duration: 10,
-      relayNumber: 1,
-    },
-    {
-      temperature: 50,
-      duration: 10,
-      relayNumber: 2,
-    },
-  ];
-
-  savedTime = [
-    {
-      day: 'monday',
-      timestamp: {
-        hour: 9,
-        minute: 30,
-        second: 0,
-      },
-      duration: 10,
-      relayNumber: 1,
-    },
-    {
-      day: 'friday',
-      timestamp: {
-        hour: 12,
-        minute: 0,
-        second: 0,
-      },
-      duration: 20,
-      relayNumber: 3,
-    },
-    {
-      day: 'tuesday',
-      timestamp: {
-        hour: 21,
-        minute: 45,
-        second: 0,
-      },
-      duration: 30,
-      relayNumber: 4,
     },
   ];
 
@@ -123,10 +71,15 @@ export class WelcomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('result >>>', result);
+        // console.log('result >>>', result);
 
         this.timeSettingService.create(result).subscribe((res) => {
-          console.log(res);
+          // console.log(res);
+          Swal.fire({
+            title: 'เพิ่มการตั้งค่าเสร็จสิ้น!',
+            icon: 'success',
+            confirmButtonText: 'ตกลง',
+          });
         });
       }
     });
@@ -139,10 +92,15 @@ export class WelcomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('result >>>', result);
+        // console.log('result >>>', result);
 
         this.tempSettingService.create(result).subscribe((res) => {
-          console.log(res);
+          // console.log(res);
+          Swal.fire({
+            title: 'เพิ่มการตั้งค่าเสร็จสิ้น!',
+            icon: 'success',
+            confirmButtonText: 'ตกลง',
+          });
         });
       }
     });
@@ -151,15 +109,11 @@ export class WelcomeComponent implements OnInit {
   settingList() {
     const dialogRef = this.dialog.open(DialogSettingListComponent, {
       width: '50%',
-      data: {
-        savedTemp: this.savedTemp,
-        savedTime: this.savedTime,
-      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('result >>>', result);
+        // console.log('result >>>', result);
       }
     });
   }
@@ -171,10 +125,10 @@ export class WelcomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('result >>>', result);
+        // console.log('result >>>', result);
 
         this.systemSettingService.update(result).subscribe((res) => {
-          console.log(res);
+          // console.log(res);
           Swal.fire({
             title: 'บันทึกเสร็จสิ้น!',
             icon: 'success',
@@ -187,7 +141,7 @@ export class WelcomeComponent implements OnInit {
 
   onUpload() {
     this.userService.findAllUser().subscribe((res) => {
-      console.log(res);
+      // console.log(res);
     });
   }
 }
