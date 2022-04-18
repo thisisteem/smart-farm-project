@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class SystemSettingService {
   public url = 'http://localhost:1000';
+  // public url = 'backend-service.default.svc.cluster.local';
   constructor(private http: HttpClient) {}
 
   findAll(): Observable<any> {

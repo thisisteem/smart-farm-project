@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: angular
-          image: chakphetph/smart-farm-frontend:v1
-          imagePullPolicy: Always
+          image: smart-farm-frontend:v1
+          imagePullPolicy: Never
           ports:
             - containerPort: 80
 ---

@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 
 export class UserService {
     public url = "http://localhost:1000"
+    // public url = 'backend-service.default.svc.cluster.local';
     constructor(private http: HttpClient) { }
 
     findAllUser(): Observable<any> {       

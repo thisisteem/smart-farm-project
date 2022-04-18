@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent implements OnInit {
-  temperature: number = 26;
+  temperature: number = 30;
   humidity: number = 87;
   dirtMoisture: number = 63;
 
