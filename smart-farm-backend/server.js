@@ -65,7 +65,7 @@ app.use(errorHandler.get500);
 
 // ============================= Get port from environment and store in Express. =============================
 const PORT = new config().app.port;
-app.listen(PORT || "1000", () => {
+app.listen(PORT || "3000", () => {
   console.log("Listening on port " + PORT);
 });
 
